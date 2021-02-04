@@ -1,0 +1,99 @@
+<Content>
+    size_hint: 1, None
+    height: self.minimum_height
+    TwoLineIconListItem:
+        id : drawout
+
+        IconLeftWidget:
+            icon: 'calendar-text'
+<Inputtext>
+    MDTextField:
+        mode: "rectangle"
+        id: input
+        size_hint: 0.6,0.2
+        pos_hint: {"x":0.1,"top":0.6}
+        hint_text: "Enter Name here"
+        helper_text: ""
+        helper_text_mode: "on_focus"
+
+
+    MDTextField:
+        mode: "rectangle"
+        id: input2
+        size_hint: 0.6,0.2
+        pos_hint: {"x":0.1,"top":0.3}
+        hint_text: "Enter Description here"
+        helper_text: "Press Enter here to validate"
+        helper_text_mode: "on_focus"
+        color: app.theme_cls.accent_color
+        
+
+        on_text_validate: app.set_meeting_name()
+        
+MDBoxLayout:
+    orientation: "vertical"
+    size_hint: [1, 1]
+ 
+
+   
+    MDToolbar:
+        id: bar
+        title: "Calendar"
+        left_action_items: [["plus",lambda x: app.show_datepicker()],["palette",lambda x: app.show_themepicker()]] 
+       
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        canvas:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            spacing: 10
+            orientation: "horizontal"
+            size_hint: [1,0.1]
+            canvas:
+                Color:
+                    rgba: 25/255, 25/255, 30/255, 1
+                Rectangle: 
+                    pos: self.pos 
+                    size: self.size 
+            Label:
+                text: app.show_getday(0)
+            Label:
+                text: app.show_getday(1)
+            Label:
+                text: app.show_getday(2)
+            Label:
+                text: app.show_getday(3)
+            Label:
+                text: app.show_getday(4)
+            Label:
+                text: app.show_getday(5)
+            Label:
+                text: app.show_getday(6)
+        
+        ScrollView:
+            GridLayout:
+                id: box
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+            
+            
+
+        
+            
+    
+
+
+
+
+                
+            
+            
+        
+            
+        
+       
+        
